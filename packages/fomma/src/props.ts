@@ -69,6 +69,7 @@ export interface FormItem {
     value: string[],
     self: FormData
   ) => Promise<any[]> | void
+  customPlaceholder?: string
 }
 export interface FormData extends FormItem {
   value: any | null

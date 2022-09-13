@@ -354,6 +354,7 @@ defineExpose({
               v-bind="item.cops"
               v-model:value="item.value"
               :size="item.size"
+              :placeholder="item.customPlaceholder || `${item.label}不能为空`"
             />
           </template>
           <template v-else-if="item.type === 'Textarea'">
@@ -362,6 +363,7 @@ defineExpose({
               v-model:value="item.value"
               type="textarea"
               :size="item.size"
+              :placeholder="item.customPlaceholder || `${item.label}不能为空`"
             />
           </template>
           <template v-else-if="item.type === 'InputNum'">
@@ -369,6 +371,7 @@ defineExpose({
               v-bind="item.cops"
               v-model:value="item.value"
               :size="item.size"
+              :placeholder="item.customPlaceholder || `${item.label}不能为空`"
             />
           </template>
           <template v-else-if="item.type === 'Select'">
@@ -378,6 +381,7 @@ defineExpose({
               :size="item.size"
               :options="item.options"
               :loading="item._loading"
+              :placeholder="item.customPlaceholder || `请选择${item.label}`"
             />
           </template>
           <template v-else-if="item.type === 'Checkbox'">
@@ -475,6 +479,7 @@ defineExpose({
                 v-bind="item.cops"
                 v-model:value="item.value"
                 :size="item.size"
+                :placeholder="item.customPlaceholder || `${item.label}不能为空`"
               />
             </template>
             <template v-else-if="item.type === 'Textarea'">
@@ -483,6 +488,7 @@ defineExpose({
                 v-model:value="item.value"
                 type="textarea"
                 :size="item.size"
+                :placeholder="item.customPlaceholder || `${item.label}不能为空`"
               />
             </template>
             <template v-else-if="item.type === 'InputNum'">
@@ -491,6 +497,7 @@ defineExpose({
                 v-model:value="item.value"
                 :size="item.size"
                 clearable
+                :placeholder="item.customPlaceholder || `${item.label}不能为空`"
               />
             </template>
             <template v-else-if="item.type === 'Select'">
@@ -500,6 +507,7 @@ defineExpose({
                 :size="item.size"
                 :options="item.options"
                 :loading="item._loading"
+                :placeholder="item.customPlaceholder || `请选择${item.label}`"
               />
             </template>
             <template v-else-if="item.type === 'Checkbox'">
