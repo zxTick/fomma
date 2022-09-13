@@ -63,7 +63,7 @@ const closeComponentLoading = (proxy: FormPlusData) => {
 const dataForm = ref<any>(null)
 
 // stopEffect
-const stopWatchs: any[] = []
+const stopWatches: any[] = []
 
 // component var
 const axiosOptionsMap = new Map<string, FormPlusData>()
@@ -170,7 +170,7 @@ function initWatch() {
       initRules()
       closeComponentLoading(item)
     })
-    stopWatchs.push(stopWatch)
+    stopWatches.push(stopWatch)
   })
 }
 function mixinData(iterator: FormPlusItem) {
@@ -281,7 +281,7 @@ function reset() {
  * @description: 使用naive自带的校验模式
  * @param {Function} callBack 成功后的回调函数
  */
-function navieValidator(callBack: Function) {
+function naiveValidator(callBack: Function) {
   if (dataForm.value) {
     dataForm.value.validate((errors: any) => {
       if (!errors)
@@ -317,8 +317,8 @@ function validator() {
 
 onUnmounted(() => {
   // 取消effect的缓存
-  if (stopWatchs.length > 0) {
-    stopWatchs.forEach((stop) => {
+  if (stopWatches.length > 0) {
+    stopWatches.forEach((stop) => {
       stop()
     })
   }
@@ -328,7 +328,7 @@ defineExpose({
   generatorParams,
   update,
   reset,
-  navieValidator,
+  naiveValidator,
   validator,
   _value,
 })
@@ -353,6 +353,14 @@ defineExpose({
             <NInput
               v-bind="item.cops"
               v-model:value="item.value"
+              :size="item.size"
+            />
+          </template>
+          <template v-else-if="item.type === 'Textarea'">
+            <NInput
+              v-bind="item.cops"
+              v-model:value="item.value"
+              type="textarea"
               :size="item.size"
             />
           </template>
@@ -466,6 +474,14 @@ defineExpose({
               <NInput
                 v-bind="item.cops"
                 v-model:value="item.value"
+                :size="item.size"
+              />
+            </template>
+            <template v-else-if="item.type === 'Textarea'">
+              <NInput
+                v-bind="item.cops"
+                v-model:value="item.value"
+                type="textarea"
                 :size="item.size"
               />
             </template>

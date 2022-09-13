@@ -47,7 +47,7 @@ export interface FormPlusItem {
   | 'any'
   label: string
   key: string
-  type: 'Input' | 'InputNum' | 'Select' | 'Checkbox' | 'Radio' | 'Picker' | 'Time' | 'Switch' | 'TreeSelect' | 'Transfer' | 'Null'
+  type: 'Input' | 'InputNum' | 'Select' | 'Checkbox' | 'Radio' | 'Picker' | 'Time' | 'Switch' | 'TreeSelect' | 'Transfer' | 'Null' | 'Textarea'
   size?: 'small' | 'medium' | 'large' | undefined
   cops?: object
   path?: string
