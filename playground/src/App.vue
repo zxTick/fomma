@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { FormPlusItem } from 'fomma'
+import type { FormItem } from 'fomma'
 import { ZTForm } from 'fomma'
 
-const options: FormPlusItem[] = [
+const options: FormItem[] = [
   {
     label: '账号',
     key: 'username',

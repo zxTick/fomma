@@ -1,6 +1,6 @@
 import type { PropType, WatchStopHandle } from 'vue'
 import type { FormItemRule, FormProps, MessageApi } from 'naive-ui'
-const DataFormPlusProps = {
+const FommaProps = {
   formConfig: {
     type: Object as PropType<FormProps>,
     default: { labelPlacement: 'left' },
@@ -19,7 +19,7 @@ const DataFormPlusProps = {
     },
   },
   options: {
-    type: Array as PropType<Array<FormPlusItem>>,
+    type: Array as PropType<Array<FormItem>>,
   },
   cols: {
     type: String,
@@ -27,7 +27,7 @@ const DataFormPlusProps = {
   },
 }
 
-export interface FormPlusItem {
+export interface FormItem {
   ruleType?:
   | 'string'
   | 'number'
@@ -61,16 +61,16 @@ export interface FormPlusItem {
   axiosOptions?: () => Promise<any[]>
   reconfiguration?: (value: any) => { key: string; value: any }[]
   update?: (row: any) => any
-  reset?: (formItem: FormPlusData) => any
+  reset?: (formItem: FormData) => any
   naiveValidator?: (rule: FormItemRule, value: any) => boolean | Error
-  validator?: (value: FormPlusData, message: MessageApi) => boolean
+  validator?: (value: FormData, message: MessageApi) => boolean
   watchCallBack?: (
-    params: FormPlusData[],
+    params: FormData[],
     value: string[],
-    self: FormPlusData
+    self: FormData
   ) => Promise<any[]> | void
 }
-export interface FormPlusData extends FormPlusItem {
+export interface FormData extends FormItem {
   value: any | null
   options: { label: string; value: string }[]
   _watch?: WatchStopHandle
@@ -82,4 +82,4 @@ export type FommaInstanceType = InstanceType<
   typeof import('./index.vue').default
 >
 
-export default DataFormPlusProps
+export default FommaProps
