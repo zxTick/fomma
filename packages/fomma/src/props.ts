@@ -70,6 +70,7 @@ export interface FormItem {
     self: FormData
   ) => Promise<any[]> | void
   customPlaceholder?: string
+  clearable?: boolean
 }
 export interface FormData extends FormItem {
   value: any | null
