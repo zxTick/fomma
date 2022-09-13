@@ -30,14 +30,14 @@ import {
 } from 'naive-ui'
 import { NOOP, isArray, logError, logWarning } from './utils'
 import DataFormPlusProps from './props'
-import type { FormPlusData, FormPlusItem } from './props'
+import type { FormData, FormItem } from './props'
 
 // component props
 const props = defineProps(DataFormPlusProps)
 const options = toRef(props, 'options')
 
 // component state
-const data = reactive<{ value: FormPlusData[] }>({
+const data = reactive<{ value: FormData[] }>({
   value: [],
 })
 const rules = ref<any>({})
@@ -45,17 +45,17 @@ const _value = computed(() => {
   return generatorParams('role')
 })
 
-const setProxyOptions = (proxy: FormPlusData, value: any[]) => {
+const setProxyOptions = (proxy: FormData, value: any[]) => {
   proxy.options = value
 }
-const setProxyDefaultValue = (proxy: FormPlusData) => {
+const setProxyDefaultValue = (proxy: FormData) => {
   proxy.value = proxy.defaultValue || null
 }
 
-const openComponentLoading = (proxy: FormPlusData) => {
+const openComponentLoading = (proxy: FormData) => {
   proxy._loading = true
 }
-const closeComponentLoading = (proxy: FormPlusData) => {
+const closeComponentLoading = (proxy: FormData) => {
   proxy._loading = false
 }
 
@@ -66,7 +66,7 @@ const dataForm = ref<any>(null)
 const stopWatches: any[] = []
 
 // component var
-const axiosOptionsMap = new Map<string, FormPlusData>()
+const axiosOptionsMap = new Map<string, FormData>()
 const noOptionsType = ['Input', 'InputNum', 'Picker', 'Time', 'Switch', 'Img']
 
 onMounted(() => {
@@ -142,7 +142,7 @@ function initWatch() {
 
         return proxy
       })
-      .filter(item => !!item) as FormPlusData[]
+      .filter(item => !!item) as FormData[]
 
     if (params.length === 0) {
       logWarning(
@@ -153,7 +153,7 @@ function initWatch() {
       return
     }
 
-    function injectionToMonitorAnArrayElement(proxy: FormPlusData) {
+    function injectionToMonitorAnArrayElement(proxy: FormData) {
       collectTheKeyFunction.push(() => proxy?.value)
     }
 
@@ -173,7 +173,7 @@ function initWatch() {
     stopWatches.push(stopWatch)
   })
 }
-function mixinData(iterator: FormPlusItem) {
+function mixinData(iterator: FormItem) {
   const options: any[] = []
   iterator.size = iterator.size || 'small'
   let _isWatchUpdate = true
@@ -196,7 +196,7 @@ function mixinData(iterator: FormPlusItem) {
 function generatorParams(type = 'create') {
   if (!data.value)
     return
-  return data.value.reduce((pre: any, cur: FormPlusData) => {
+  return data.value.reduce((pre: any, cur: FormData) => {
     if (type === 'create') {
       if (cur.reconfiguration && cur.value !== null) {
         cur.reconfiguration(cur.value).forEach((item) => {
@@ -257,7 +257,7 @@ function findTargetProxy(key: string) {
       return currentKey.includes(key)
     else
       return currentKey === key
-  }) as FormPlusData
+  }) as FormData
 
   return targetProxy
 }
@@ -268,7 +268,7 @@ function findTargetProxy(key: string) {
 function reset() {
   if (!data.value)
     return
-  data.value.forEach((it: FormPlusData) => {
+  data.value.forEach((it: FormData) => {
     if (it.reset)
       it.value = it.reset(it)
 
@@ -300,7 +300,7 @@ function validator() {
   }
   if (!data.value)
     return
-  return data.value.every((it: FormPlusData) => {
+  return data.value.every((it: FormData) => {
     if (it.validator)
       return it.validator(it, messageTools as any)
 
