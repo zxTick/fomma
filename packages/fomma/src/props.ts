@@ -62,7 +62,7 @@ export interface FormItem {
   reconfiguration?: (value: any) => { key: string; value: any }[]
   update?: (row: any) => any
   reset?: (formItem: FormData) => any
-  naiveValidator?: (rule: FormItemRule, value: any) => boolean | Error
+  nativeValidator?: (rule: FormItemRule, value: any) => boolean | Error
   validator?: (value: FormData, message: MessageApi) => boolean
   watchCallBack?: (
     params: FormData[],

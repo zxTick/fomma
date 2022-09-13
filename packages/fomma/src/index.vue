@@ -97,7 +97,7 @@ function initRules() {
           required: item.naive || item.required,
           message: item.message || message,
           trigger: item.trigger || 'blur',
-          validator: item.naiveValidator,
+          validator: item.nativeValidator,
         }
         if (!rule.validator)
           delete rule.validator
@@ -281,7 +281,7 @@ function reset() {
  * @description: 使用naive自带的校验模式
  * @param {Function} callBack 成功后的回调函数
  */
-function naiveValidator(callBack: Function) {
+function nativeValidator(callBack: Function) {
   if (dataForm.value) {
     dataForm.value.validate((errors: any) => {
       if (!errors)
@@ -328,7 +328,7 @@ defineExpose({
   generatorParams,
   update,
   reset,
-  naiveValidator,
+  nativeValidator,
   validator,
   _value,
 })
