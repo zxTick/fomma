@@ -2,7 +2,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "play": "p --filter playground dev"
+    "play": "pnpm --filter playground dev"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.26.3",

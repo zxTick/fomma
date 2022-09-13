@@ -11,7 +11,12 @@
   ],
   "author": "zx(alexzhang1030) with Tick(TickHeart)",
   "peerDependencies": {
-    "naive-ui": "^2.33.3"
+    "naive-ui": "^2.3",
+    "vue": "^3.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "naive-ui": "^2.33.3",
+    "vue": "^3.2.37"
+  }
 }
