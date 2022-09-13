@@ -1,11 +1,13 @@
 {
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
-    "play": "pnpm --filter playground dev"
+    "play": "pnpm --filter playground dev",
+    "release": "bumpp && npm publish"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.26.3",
+    "bumpp": "^8.2.1",
     "eslint": "^8.23.1",
     "typescript": "^4.6.4"
   },
