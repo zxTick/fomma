@@ -5,14 +5,25 @@
     "play": "pnpm --filter playground dev",
     "up": "taze -r -I",
     "release": "bumpp package.json ./packages/*/package.json --commit \"chore: release v%s\" --push --tag && pnpm publish -r",
+    "prepare": "simple-git-hooks",
     "lint": "eslint ."
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.26.3",
     "bumpp": "^8.2.1",
     "eslint": "^8.23.1",
+    "lint-staged": "^13.0.3",
+    "simple-git-hooks": "^2.8.0",
     "taze": "^0.8.0",
     "typescript": "^4.8.3"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged"
+  },
+  "lint-staged": {
+    "*": [
+      "eslint . --fix"
+    ]
   },
   "eslintConfig": {
     "extends": "@antfu"
