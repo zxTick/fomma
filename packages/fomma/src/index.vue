@@ -91,10 +91,10 @@ function initRules() {
     rules.value = []
     data.value.forEach((item) => {
       const message = `${item.label}不可以为空，请输入值。`
-      if ((item.path && item.path !== '') || item.naive) {
+      if ((item.path && item.path !== '') || item.nativeRequired) {
         const rule = {
           type: item.ruleType || 'string',
-          required: item.naive || item.required,
+          required: item.nativeRequired || item.required,
           message: item.message || message,
           trigger: item.trigger || 'blur',
           validator: item.nativeValidator,

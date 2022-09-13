@@ -54,7 +54,7 @@ export interface FormItem {
   message?: string
   trigger?: string
   required?: boolean
-  naive?: boolean
+  nativeRequired?: boolean
   proxyKey?: string | string[]
   watchKey?: string[] | string
   defaultValue?: any
