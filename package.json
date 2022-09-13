@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "play": "pnpm --filter playground dev",
-    "release": "bumpp && pnpm publish -r"
+    "release": "bumpp -r --commit --push --tag && pnpm publish -r"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.26.3",
