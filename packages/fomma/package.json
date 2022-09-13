@@ -17,6 +17,6 @@
   "license": "MIT",
   "devDependencies": {
     "naive-ui": "^2.33.3",
-    "vue": "^3.2.37"
+    "vue": "^3.2.39"
   }
 }
