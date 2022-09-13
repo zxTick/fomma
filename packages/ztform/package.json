@@ -1,0 +1,17 @@
+{
+  "name": "ztform",
+  "version": "0.0.0",
+  "description": "a Vue form Library required NaiveUI",
+  "main": "index.ts",
+  "scripts": {},
+  "keywords": [
+    "vue",
+    "form library",
+    "naive ui"
+  ],
+  "author": "zx(alexzhang1030) with Tick(TickHeart)",
+  "peerDependencies": {
+    "naive-ui": "^2.33.3"
+  },
+  "license": "MIT"
+}
