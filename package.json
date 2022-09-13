@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.0.2",
+  "version": "0.0.1",
   "scripts": {
     "play": "pnpm --filter playground dev",
     "release": "bumpp package.json --commit \"chore: release v%s\" --push --tag && pnpm publish -r"
