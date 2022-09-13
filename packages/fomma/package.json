@@ -1,6 +1,6 @@
 {
   "name": "fomma",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a Vue form Library required NaiveUI",
   "main": "index.ts",
   "scripts": {},
