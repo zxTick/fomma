@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "scripts": {
     "play": "pnpm --filter playground dev",
-    "release": "bumpp && npm publish"
+    "release": "bumpp && pnpm publish -r"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.26.3",
     "bumpp": "^8.2.1",
     "eslint": "^8.23.1",
+    "fomma": "workspace:*",
     "typescript": "^4.6.4"
   },
   "eslintConfig": {
