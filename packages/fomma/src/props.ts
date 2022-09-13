@@ -78,7 +78,7 @@ export interface FormPlusData extends FormPlusItem {
   _isWatchUpdate: boolean
 }
 
-export type DataFormPlusType = InstanceType<
+export type FommaInstanceType = InstanceType<
   typeof import('./index.vue').default
 >
 
