@@ -1,9 +1,9 @@
 {
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "play": "pnpm --filter playground dev",
-    "release": "bumpp -r --commit --push --tag && pnpm publish -r"
+    "release": "bumpp --recursive --commit --push --tag && pnpm publish -r"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.26.3",
