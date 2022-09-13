@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.0",
   "scripts": {
     "play": "pnpm --filter playground dev",
     "release": "bumpp package.json --commit \"chore: release v%s\" --push --tag && pnpm publish -r"
@@ -9,7 +9,6 @@
     "@antfu/eslint-config": "^0.26.3",
     "bumpp": "^8.2.1",
     "eslint": "^8.23.1",
-    "fomma": "workspace:*",
     "typescript": "^4.6.4"
   },
   "eslintConfig": {

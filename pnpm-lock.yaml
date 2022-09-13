@@ -7,16 +7,14 @@ importers:
       '@antfu/eslint-config': ^0.26.3
       bumpp: ^8.2.1
       eslint: ^8.23.1
-      fomma: workspace:*
       typescript: ^4.6.4
     devDependencies:
       '@antfu/eslint-config': 0.26.3_nbcbbd7lfrdtsoifdu7ts5ch5u
       bumpp: 8.2.1
       eslint: 8.23.1
-      fomma: link:packages/ztform
       typescript: 4.8.2
 
-  packages/ztform:
+  packages/fomma:
     specifiers:
       naive-ui: ^2.33.3
       vue: ^3.2.37
@@ -37,7 +35,7 @@ importers:
       vue: 3.2.37
     devDependencies:
       '@vitejs/plugin-vue': 3.1.0_vite@3.1.0+vue@3.2.37
-      fomma: link:../packages/ztform
+      fomma: link:../packages/fomma
       naive-ui: 2.33.3_vue@3.2.37
       typescript: 4.8.2
       vite: 3.1.0
