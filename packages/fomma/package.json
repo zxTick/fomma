@@ -2,19 +2,19 @@
   "name": "fomma",
   "version": "0.0.2",
   "description": "a Vue form Library required NaiveUI",
-  "main": "index.ts",
-  "scripts": {},
+  "author": "zx(alexzhang1030) with Tick(TickHeart)",
+  "license": "MIT",
   "keywords": [
     "vue",
     "form library",
     "naive ui"
   ],
-  "author": "zx(alexzhang1030) with Tick(TickHeart)",
+  "main": "index.ts",
+  "scripts": {},
   "peerDependencies": {
     "naive-ui": "^2.3",
     "vue": "^3.2"
   },
-  "license": "MIT",
   "devDependencies": {
     "naive-ui": "^2.33.3",
     "vue": "^3.2.39"
