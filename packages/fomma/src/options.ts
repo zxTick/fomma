@@ -117,13 +117,13 @@ interface Validate {
    * @description: 表单校验方法
    * @trigger NaiveUI 实现的方式
    */
-  nativeValidator?: (rule: FormItemRule, value: any) => boolean | Error
+  nativeValidate?: (rule: FormItemRule, value: any) => boolean | Error
 
   /**
    * @description: 表单校验方法
    * @trigger 内部实现的方式
    */
-  validator?: (value: FormData, message: MessageApi) => boolean
+  validate?: (value: FormData, message: MessageApi) => boolean
 }
 
 interface Value {

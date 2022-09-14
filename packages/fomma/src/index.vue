@@ -42,7 +42,7 @@ const data = reactive<{ value: FormData[] }>({
 })
 const rules = ref<any>({})
 const _value = computed(() => {
-  return generatorParams('role')
+  return getFormData('role')
 })
 
 const setProxyOptions = (proxy: FormData, value: any[]) => {
@@ -97,7 +97,7 @@ function initRules() {
           required: item.nativeRequired || item.required,
           message: item.message || message,
           trigger: item.trigger || 'blur',
-          validator: item.nativeValidator,
+          validator: item.nativeValidate,
         }
         if (!rule.validator)
           delete rule.validator
@@ -193,7 +193,7 @@ function mixinData(iterator: FormItem) {
     axiosOptionsMap.set(proxy.key, proxy)
 }
 
-function generatorParams(type = 'create') {
+function getFormData(type = 'create') {
   if (!data.value)
     return
   return data.value.reduce((pre: any, cur: FormData) => {
@@ -301,8 +301,8 @@ function validator() {
   if (!data.value)
     return
   return data.value.every((it: FormData) => {
-    if (it.validator)
-      return it.validator(it, messageTools as any)
+    if (it.validate)
+      return it.validate(it, messageTools as any)
 
     if (it.required) {
       if (it.value)
@@ -325,7 +325,7 @@ onUnmounted(() => {
 })
 
 defineExpose({
-  generatorParams,
+  getFormData,
   update,
   reset,
   nativeValidator,
