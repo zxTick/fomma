@@ -73,8 +73,8 @@ onMounted(() => {
   if (axiosOptionsMap.size > 0) {
     axiosOptionsMap.forEach(async (value) => {
       const proxy = value
-      if (proxy.axiosOptions) {
-        const res = await proxy.axiosOptions()
+      if (proxy.optionsFetch) {
+        const res = await proxy.optionsFetch()
         setProxyOptions(proxy, res)
       }
       if (proxy.defaultValue)
@@ -189,7 +189,7 @@ function mixinData(iterator: FormItem) {
   })
 
   const proxy = data.value[ProxyLength - 1]
-  if (iterator.axiosOptions)
+  if (iterator.optionsFetch)
     axiosOptionsMap.set(proxy.key, proxy)
 }
 
@@ -351,7 +351,7 @@ defineExpose({
         >
           <template v-if="item.type === 'Input'">
             <NInput
-              v-bind="item.cops"
+              v-bind="item.nativeProps"
               v-model:value="item.value"
               :size="item.size"
               :placeholder="item.customPlaceholder || `${item.label}不能为空`"
@@ -360,7 +360,7 @@ defineExpose({
           </template>
           <template v-else-if="item.type === 'Textarea'">
             <NInput
-              v-bind="item.cops"
+              v-bind="item.nativeProps"
               v-model:value="item.value"
               type="textarea"
               :size="item.size"
@@ -370,7 +370,7 @@ defineExpose({
           </template>
           <template v-else-if="item.type === 'InputNum'">
             <NInputNumber
-              v-bind="item.cops"
+              v-bind="item.nativeProps"
               v-model:value="item.value"
               :size="item.size"
               :placeholder="item.customPlaceholder || `${item.label}不能为空`"
@@ -379,7 +379,7 @@ defineExpose({
           </template>
           <template v-else-if="item.type === 'Select'">
             <NSelect
-              v-bind="item.cops"
+              v-bind="item.nativeProps"
               v-model:value="item.value"
               :size="item.size"
               :options="item.options"
@@ -392,7 +392,7 @@ defineExpose({
             <NCheckboxGroup
               v-model:value="item.value"
               :size="item.size"
-              v-bind="item.cops"
+              v-bind="item.nativeProps"
             >
               <NSpace item-style="display: flex;">
                 <NCheckbox
@@ -408,7 +408,7 @@ defineExpose({
             <NRadioGroup
               v-model:value="item.value"
               :size="item.size"
-              v-bind="item.cops"
+              v-bind="item.nativeProps"
               name="ic"
             >
               <NSpace>
@@ -426,21 +426,21 @@ defineExpose({
             <NDatePicker
               v-model:value="item.value"
               :size="item.size"
-              v-bind="item.cops"
+              v-bind="item.nativeProps"
             />
           </template>
           <template v-else-if="item.type === 'Time'">
             <NTimePicker
               v-model:value="item.value"
               :size="item.size"
-              v-bind="item.cops"
+              v-bind="item.nativeProps"
             />
           </template>
           <template v-else-if="item.type === 'Switch'">
             <NSwitch
               v-model:value="item.value"
               :size="item.size"
-              v-bind="item.cops"
+              v-bind="item.nativeProps"
             />
           </template>
           <template v-else-if="item.type === 'TreeSelect'">
@@ -448,7 +448,7 @@ defineExpose({
               v-model:value="item.value"
               :options="item.options"
               :size="item.size"
-              v-bind="item.cops"
+              v-bind="item.nativeProps"
               :loading="item._loading"
             />
           </template>
@@ -456,7 +456,7 @@ defineExpose({
             <NTransfer
               v-model:value="item.value"
               :size="item.size"
-              v-bind="item.cops"
+              v-bind="item.nativeProps"
               :options="item.options"
               :loading="item._loading"
             />
@@ -480,7 +480,7 @@ defineExpose({
           >
             <template v-if="item.type === 'Input'">
               <NInput
-                v-bind="item.cops"
+                v-bind="item.nativeProps"
                 v-model:value="item.value"
                 :size="item.size"
                 :placeholder="item.customPlaceholder || `${item.label}不能为空`"
@@ -489,7 +489,7 @@ defineExpose({
             </template>
             <template v-else-if="item.type === 'Textarea'">
               <NInput
-                v-bind="item.cops"
+                v-bind="item.nativeProps"
                 v-model:value="item.value"
                 type="textarea"
                 :size="item.size"
@@ -499,7 +499,7 @@ defineExpose({
             </template>
             <template v-else-if="item.type === 'InputNum'">
               <NInputNumber
-                v-bind="item.cops"
+                v-bind="item.nativeProps"
                 v-model:value="item.value"
                 :size="item.size"
                 :placeholder="item.customPlaceholder || `${item.label}不能为空`"
@@ -508,7 +508,7 @@ defineExpose({
             </template>
             <template v-else-if="item.type === 'Select'">
               <NSelect
-                v-bind="item.cops"
+                v-bind="item.nativeProps"
                 v-model:value="item.value"
                 :size="item.size"
                 :options="item.options"
@@ -521,7 +521,7 @@ defineExpose({
               <NCheckboxGroup
                 v-model:value="item.value"
                 :size="item.size"
-                v-bind="item.cops"
+                v-bind="item.nativeProps"
               >
                 <NSpace item-style="display: flex;">
                   <NCheckbox
@@ -537,7 +537,7 @@ defineExpose({
               <NRadioGroup
                 v-model:value="item.value"
                 :size="item.size"
-                v-bind="item.cops"
+                v-bind="item.nativeProps"
                 name="ic"
               >
                 <NSpace>
@@ -555,21 +555,21 @@ defineExpose({
               <NDatePicker
                 v-model:value="item.value"
                 :size="item.size"
-                v-bind="item.cops"
+                v-bind="item.nativeProps"
               />
             </template>
             <template v-else-if="item.type === 'Time'">
               <NTimePicker
                 v-model:value="item.value"
                 :size="item.size"
-                v-bind="item.cops"
+                v-bind="item.nativeProps"
               />
             </template>
             <template v-else-if="item.type === 'Switch'">
               <NSwitch
                 v-model:value="item.value"
                 :size="item.size"
-                v-bind="item.cops"
+                v-bind="item.nativeProps"
               />
             </template>
             <template v-else-if="item.type === 'TreeSelect'">
@@ -577,14 +577,14 @@ defineExpose({
                 v-model:value="item.value"
                 :options="item.options"
                 :size="item.size"
-                v-bind="item.cops"
+                v-bind="item.nativeProps"
               />
             </template>
             <template v-else-if="item.type === 'Transfer'">
               <NTransfer
                 v-model:value="item.value"
                 :size="item.size"
-                v-bind="item.cops"
+                v-bind="item.nativeProps"
                 :options="item.options"
               />
             </template>

@@ -1,5 +1,7 @@
-import type { PropType, WatchStopHandle } from 'vue'
-import type { FormItemRule, FormProps, MessageApi } from 'naive-ui'
+import type { PropType } from 'vue'
+import type { FormProps } from 'naive-ui'
+import type { FormItem } from './options'
+
 const FommaProps = {
   formConfig: {
     type: Object as PropType<FormProps>,
@@ -27,61 +29,9 @@ const FommaProps = {
   },
 }
 
-export interface FormItem {
-  ruleType?:
-  | 'string'
-  | 'number'
-  | 'boolean'
-  | 'method'
-  | 'regexp'
-  | 'integer'
-  | 'float'
-  | 'array'
-  | 'object'
-  | 'enum'
-  | 'date'
-  | 'url'
-  | 'hex'
-  | 'email'
-  | 'pattern'
-  | 'any'
-  label: string
-  key: string
-  type: 'Input' | 'InputNum' | 'Select' | 'Checkbox' | 'Radio' | 'Picker' | 'Time' | 'Switch' | 'TreeSelect' | 'Transfer' | 'Null' | 'Textarea'
-  size?: 'small' | 'medium' | 'large' | undefined
-  cops?: object
-  path?: string
-  message?: string
-  trigger?: string
-  required?: boolean
-  nativeRequired?: boolean
-  proxyKey?: string | string[]
-  watchKey?: string[] | string
-  defaultValue?: any
-  axiosOptions?: () => Promise<any[]>
-  reconfiguration?: (value: any) => { key: string; value: any }[]
-  update?: (row: any) => any
-  reset?: (formItem: FormData) => any
-  nativeValidator?: (rule: FormItemRule, value: any) => boolean | Error
-  validator?: (value: FormData, message: MessageApi) => boolean
-  watchCallBack?: (
-    params: FormData[],
-    value: string[],
-    self: FormData
-  ) => Promise<any[]> | void
-  customPlaceholder?: string
-  clearable?: boolean
-}
-export interface FormData extends FormItem {
-  value: any | null
-  options: { label: string; value: string }[]
-  _watch?: WatchStopHandle
-  _loading: boolean
-  _isWatchUpdate: boolean
-}
-
 export type FommaInstanceType = InstanceType<
   typeof import('./index.vue').default
 >
 
 export default FommaProps
+export * from './options'
