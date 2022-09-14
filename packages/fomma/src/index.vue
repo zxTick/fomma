@@ -281,7 +281,7 @@ function reset() {
  * @description: 使用naive自带的校验模式
  * @param {Function} callBack 成功后的回调函数
  */
-function nativeValidator(callBack: Function) {
+function nativeValidate(callBack: Function) {
   if (dataForm.value) {
     dataForm.value.validate((errors: any) => {
       if (!errors)
@@ -294,7 +294,7 @@ function nativeValidator(callBack: Function) {
  * @description: 开启表单验证
  * @return {boolean}
  */
-function validator() {
+function validate() {
   const messageTools = {
     error: (message: string) => alert(message),
   }
@@ -328,8 +328,8 @@ defineExpose({
   getFormData,
   update,
   reset,
-  nativeValidator,
-  validator,
+  nativeValidate,
+  validate,
   _value,
 })
 </script>
