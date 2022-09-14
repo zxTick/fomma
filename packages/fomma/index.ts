@@ -1,5 +1,5 @@
-import ZTForm from './src/index.vue'
+import Fomma from './src/index.vue'
 
-export { ZTForm }
+export { Fomma }
 
 export * from './src/props'
